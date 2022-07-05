@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Formularz Rejestracyjny</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="banner">
+        <div class="sidebar">
+          <a target="_blank" href="https://github.com/Veanty"
+            ><img class="logo" src="img/avatar.png" alt="Webpage logo"
+          /></a>
+          Veanty
+        </div>
+      </div>
+      <div class="main">
+        <div class="hero">
+          <div class="modal" id="modal">
+            <div class="modal-header">
+              <div class="title">Powiadomienie</div>
+              <button data-close-button class="close">&times</button>
+            </div>
+            <div class="modal-body">Konto zostało utworzone.</div>
+          </div>
+          <div id="overlay"></div>
+          <div class="header"></div>
+          <div class="form-container">
+            <form action="#" method="post" id="form">
+              <h4 style="font-size: 1.3rem">Formularz Rejestracyjny</h4>
+              <div class="rows">
+                <div class="form-row">
+                  <div class="field">
+                    <label for="first">IMIE</label>
+                    <input
+                      type="text"
+                      name="first"
+                      id="first"
+                      required
+                      placeholder=" "
+                      pattern="\b([A-ZÀ-ÿ][-,a-z. ']+[ ]*)+"
+                    />
+                  </div>
+                  <div class="field">
+                    <label for="last">NAZWISKO</label
+                    ><input
+                      required
+                      type="text"
+                      name="last"
+                      id="last"
+                      placeholder=" "
+                      pattern="\b([A-ZÀ-ÿ][-,a-z. ']+[ ]*)+"
+                    />
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="field">
+                    <label for="pesel">PESEL</label
+                    ><input
+                      minlength="11"
+                      maxlength="11"
+                      pattern="^\d{11}$"
+                      type="text"
+                      name="pesel"
+                      id="pesel"
+                      required
+                      placeholder=" "
+                    />
+                  </div>
+                  <div class="field">
+                    <label for="street">ULICA</label
+                    ><input
+                      type="text"
+                      name="street"
+                      id="street"
+                      required
+                      placeholder=" "
+                    />
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="field">
+                    <label for="post-code">KOD POCZTOWY</label
+                    ><input
+                      type="text"
+                      name="post-code"
+                      id="post-code"
+                      required
+                      pattern="[0-9]{2}[-][0-9]{3}"
+                      placeholder=" "
+                    />
+                  </div>
+                  <div class="field">
+                    <label for="voivodships">WOJEWÓDCTWO</label>
+                    <select name="voivodships" id="voivodships" required>
+                      <option value="" selected></option>
+                      <option value="dolnośląskie">dolnośląskie</option>
+                      <option value="kujawsko-pomorskie">
+                        kujawsko-pomorskie
+                      </option>
+                      <option value="lubelskie">lubelskie</option>
+                      <option value="lubuskie">lubuskie</option>
+                      <option value="łódzkie">łódzkie</option>
+                      <option value="małopolskie">małopolskie</option>
+                      <option value="mazowieckie">mazowieckie</option>
+                      <option value="opolskie">opolskie</option>
+                      <option value="podkarpackie">podkarpackie</option>
+                      <option value="podlaskie">podlaskie</option>
+                      <option value="pomorskie">pomorskie</option>
+                      <option value="śląskie">śląskie</option>
+                      <option value="świętokrzyskie">świętokrzyskie</option>
+                      <option value="warmińsko-mazurskie">
+                        warmińsko-mazurskie
+                      </option>
+                      <option value="wielkopolskie">wielkopolskie</option>
+                      <option value="zachodniopomorskie">
+                        zachodniopomorskie
+                      </option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="field">
+                    <label for="email">E-MAIL</label
+                    ><input
+                      required
+                      type="email"
+                      name="email"
+                      id="email"
+                      placeholder=" "
+                    />
+                    <div class="requirements">
+                      Must be a valid email address.
+                    </div>
+                  </div>
+                  <div class="field">
+                    <label for="phone">NUMER TELEFONU</label
+                    ><input
+                      required
+                      type="tel"
+                      name="phone"
+                      id="phone"
+                      pattern="(^|\W)(\(?(\+|00)?48\)?)?[ -]?\d{3}[ -]?\d{3}[ -]?\d{3}(?!\w)"
+                      placeholder=" "
+                    />
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="field">
+                    <label for="password">HASŁO</label
+                    ><input
+                      type="password"
+                      name="password"
+                      id="password"
+                      placeholder=" "
+                      pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+                      required
+                      onChange="onChange()"
+                    />
+                    <div class="requirements">
+                      Hasło musi składać się z 8 znaków <br />
+                      zawierać przynajmniej jedną dużą literę, <br />
+                      jedną małą literę, <br />
+                      jeden numer i znak specjalny.
+                    </div>
+                  </div>
+                  <div class="field">
+                    <label for="match">POWTÓRZ HASŁO</label
+                    ><input
+                      type="password"
+                      name="password"
+                      id="match"
+                      placeholder=" "
+                      required
+                    />
+                    <div class="requirements">Hasła muszą być takie same</div>
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="field">
+                    <label for="profilePicture">WYBIERZ ZDJĘCIE PROFILOWE</label
+                    ><input
+                      type="file"
+                      name="profilePicture"
+                      id="profilePicture"
+                      accept="image/png, image/gif, image/jpeg, image.jpg"
+                    />
+                  </div>
+                </div>
+                <div class="accept">
+                  <input type="checkbox" name="accept" id="accept" required />
+                  <label for="accept">Akceptuje regulamin</label>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="footer">
+            <div>
+              <button
+                type="submit"
+                form="form"
+                id="create"
+                data-modal-target="#modal"
+              >
+                Utwórz Konto
+              </button>
+            </div>
+            <div class="author">Copyright ©2022 Veanty</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
