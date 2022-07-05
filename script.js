@@ -1,17 +1,3 @@
-const matchField = document.getElementById("match");
-
-matchField.addEventListener("keyup", onChange);
-
-function onChange() {
-  const password = document.querySelector("input[id=password]");
-  const confirm = document.querySelector("input[id=match]");
-  if (confirm.value === password.value) {
-    confirm.setCustomValidity("");
-  } else {
-    confirm.setCustomValidity("Hasła nie są takie same");
-  }
-}
-
 const openModalButtons = document.querySelectorAll("[data-modal-target]");
 const closeModalButtons = document.querySelectorAll("[data-close-button]");
 const overlay = document.getElementById("overlay");
@@ -50,4 +36,18 @@ function closeModal(modal) {
   }
   modal.classList.remove("active");
   overlay.classList.remove("active");
+}
+
+const matchField = document.getElementById("match");
+
+matchField.addEventListener("keyup", onChange);
+
+function onChange() {
+  const password = document.querySelector("input[id=password]");
+  const confirm = document.querySelector("input[id=match]");
+  if (confirm.value === password.value) {
+    confirm.setCustomValidity("");
+  } else {
+    confirm.setCustomValidity("Hasła nie są takie same");
+  }
 }

@@ -192,7 +192,7 @@ label {
   align-self: flex-end;
   justify-self: flex-end;
 }
-button[type="submit"] {
+button[type="button"] {
   display: block;
   text-align: center;
   text-decoration: none;
@@ -218,7 +218,7 @@ button[type="submit"] {
   );
   transition: 0.5s;
 }
-button[type="submit"]:hover {
+button[type="button"]:hover {
   background-position: right center;
   cursor: pointer;
 }
@@ -230,7 +230,7 @@ button[type="submit"]:hover {
 
 .modal {
   position: fixed;
-  top: 50%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0);
   transition: 200ms ease-in-out;
