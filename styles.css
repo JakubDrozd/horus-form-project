@@ -1,32 +1,4 @@
 @import url("https://fonts.googleapis.com/css?family=Raleway");
-@media only screen and (max-width: 768px) {
-  .container {
-    display: flex;
-    flex-direction: column;
-  }
-  .rows {
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .field {
-    width: 95%;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  h4 {
-    text-align: center;
-  }
-  .footer {
-    padding: 3rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-}
 
 body {
   -webkit-font-smoothing: antialiased;
@@ -35,6 +7,8 @@ body {
   font-family: "Raleway", Sans-serif;
   padding: 0;
   margin: 0;
+  width: 100vw;
+  height: 100vh;
 }
 .container {
   display: flex;
@@ -62,14 +36,13 @@ body {
   }
 }
 .sidebar {
-  height: 7rem;
   width: 100%;
   font-size: 3.5rem;
   background-color: rgb(8, 0, 0, 0.2);
   display: flex;
   justify-content: center;
   gap: 1rem;
-  align-items: center;
+  align-items: flex-start;
   padding: 1rem;
 }
 .main {
@@ -102,7 +75,7 @@ body {
 }
 .header {
   padding-top: 5rem;
-  font-size: 1.2em;
+  font-size: 1.2rem;
   text-align: left;
   display: flex;
   flex-direction: column;
@@ -139,6 +112,7 @@ input[type="tel"]:not(:placeholder-shown):valid {
   background-size: 1rem;
   background-repeat: no-repeat;
   background-position: 3px;
+  border: 2px solid green;
 }
 input[type="number"]:not(:placeholder-shown):invalid,
 input[type="text"]:not(:placeholder-shown):invalid,
@@ -149,6 +123,7 @@ input[type="tel"]:not(:placeholder-shown):invalid {
   background-size: 1rem;
   background-repeat: no-repeat;
   background-position: 3px;
+  border: 2px solid red;
 }
 input[type="email"]:not(:placeholder-shown):invalid ~ .requirements,
 input[type="password"]:not(:placeholder-shown):invalid ~ .requirements {
@@ -218,7 +193,7 @@ button[type="button"] {
   );
   transition: 0.5s;
 }
-button[type="button"]:hover {
+#create[type="button"]:hover {
   background-position: right center;
   cursor: pointer;
 }
@@ -228,63 +203,54 @@ button[type="button"]:hover {
   height: 1.4rem;
 }
 
-.modal {
-  position: fixed;
-  top: 30%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0);
-  transition: 200ms ease-in-out;
-  border: 1px solid black;
-  border-radius: 10px;
-  z-index: 10;
-  background-color: white;
-  width: 500px;
-  max-width: 80%;
+.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+}
+.no-gutters > .col,
+.no-gutters > [class*="col-"] {
+  padding-right: 0;
+  padding-left: 0;
 }
 
-.modal.active {
-  transform: translate(-50%, -50%) scale(1);
+.row-no-padding > * {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 
-.modal-header {
-  padding: 10px 15px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid black;
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  body {
+    padding: 0;
+    margin: 0;
+    width: 100vw;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero > .header {
+    display: none;
+  }
+
+  .field > input {
+    width: 100%;
+  }
+
+  h4 {
+    text-align: center;
+  }
+
+  .banner {
+    font-size: 1em;
+  }
 }
 
-.modal-header > .title {
-  font-size: 1.2em;
-  font-weight: 600;
-}
-
-.modal-header > .close {
-  cursor: pointer;
-  border: none;
-  outline: none;
-  background: none;
-  font-size: 1.25rem;
-  font-weight: bold;
-}
-
-.modal-body {
-  padding: 10px 15px;
-}
-
-#overlay {
-  position: fixed;
-  transition: 200ms ease-in-out;
-  opacity: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  pointer-events: none;
-}
-
-#overlay.active {
-  opacity: 1;
-  pointer-events: all;
+@media (max-width: 680px) {
+  .sidebar {
+    align-items: center;
+  }
 }
